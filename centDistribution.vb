@@ -84,7 +84,8 @@ Private Function arrSum(arr() As Variant, d As Integer) As Double
 End Function
 
 
-'Finally for speed, we can refactor the original to keep the number of times the value is sent to the private function to 1. 
+'Finally for speed, we can refactor the original to keep the number of times the value was sent to the private function to 1. 
+'The private function can also be replaced by the internal Sum function that can already accept arrays. 
 'By assigning the original aggregate to a variable ${agg}, we can add +/-.01 to acheive the same result as before. 
 
 Function EQ_RFCTR2(val As Double, num As INteger) As Variant()
@@ -96,7 +97,7 @@ Function EQ_RFCTR2(val As Double, num As INteger) As Variant()
             arr(i) = Round(n, 2)
     Next i
     i = 1
-    agg = arrSum(arr,digit)
+    agg = Round(Applicaiton.WorksheetFunction.Sum(arr),digit)
     If agg > val Then
         Do Until agg <= val
             arr(i) = arr(i) - 0.01
@@ -111,12 +112,4 @@ Function EQ_RFCTR2(val As Double, num As INteger) As Variant()
         Loop
     End If
     EQUALITY = Application.WorksheetFunction.Transpose(arr)
-End Function
-
-Private Function arrSum(arr() As Variant, d As Integer) As Double
-    Dim sum As Double
-    For Each a In arr
-        sum = sum + a
-    Next a
-    arrSum = Round(sum, d)
 End Function
