@@ -1,4 +1,4 @@
-'Okay this is fascinating and very powerful, so I decided to do a quick writup. I've discovered the ability to do JS injecitons in Visual Basic Selenium Driver. 
+'Okay this is fascinating and very powerful, so I decided to do a quick writup. I've fallen into the functionality to do basic JS injecitons in Visual Basic Selenium Driver. 
 'For Example:
 
 Sub jsInject()
