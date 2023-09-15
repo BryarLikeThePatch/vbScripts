@@ -1,3 +1,4 @@
+'This script is used to create a PDF from a fixed range and save that file. 
 Sub ToPDF()
     Dim rng as Range
     Dim filepath As String, filename as String
